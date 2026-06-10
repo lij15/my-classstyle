@@ -1,0 +1,65 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Books
+# @name Books_GET
+GET {{server}}/odata/v4/admin/Books
+Authorization: Basic {{username}}:{{password}}
+
+
+### Books
+# @name Books_POST
+POST {{server}}/odata/v4/admin/Books
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "3286969c-70e9-4a8c-b702-9f67aed5c9c9",
+  "title": "title-3286969",
+  "price": 8034139.02,
+  "stock": 84,
+  "published": false,
+  "createdAt": "2005-11-11T15:00:00.000Z",
+  "createdBy": "createdBy.1yg8p@example.com",
+  "modifiedAt": "2007-07-18T15:00:00.000Z",
+  "modifiedBy": "modifiedBy.1yg8p@example.org"
+}
+
+
+### Books
+# @name Books_PATCH
+PATCH {{server}}/odata/v4/admin/Books/3286969c-70e9-4a8c-b702-9f67aed5c9c9
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "3286969c-70e9-4a8c-b702-9f67aed5c9c9",
+  "title": "title-3286969",
+  "price": 8034139.02,
+  "stock": 84,
+  "published": false,
+  "createdAt": "2005-11-11T15:00:00.000Z",
+  "createdBy": "createdBy.1yg8p@example.com",
+  "modifiedAt": "2007-07-18T15:00:00.000Z",
+  "modifiedBy": "modifiedBy.1yg8p@example.org"
+}
+
+
+### Books
+# @name Books_DELETE
+DELETE {{server}}/odata/v4/admin/Books/3286969c-70e9-4a8c-b702-9f67aed5c9c9
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### resetStock
+# @name resetStock_POST
+POST {{server}}/odata/v4/admin/resetStock
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "bookID": "23341805-e48e-4f7b-a0d7-f9801470e757"
+}

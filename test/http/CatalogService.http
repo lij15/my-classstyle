@@ -1,0 +1,87 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Books
+# @name Books_GET
+GET {{server}}/odata/v4/catalog/Books
+Authorization: Basic {{username}}:{{password}}
+
+
+### Books
+# @name Books_POST
+POST {{server}}/odata/v4/catalog/Books
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "29989098-1663-4c39-aff8-4d4efc20eca8",
+  "title": "title-29989098",
+  "price": 5641015.98,
+  "stock": 50,
+  "published": true,
+  "createdAt": "2020-06-26T15:00:00.000Z",
+  "createdBy": "createdBy.hurqi@example.net",
+  "modifiedAt": "2019-08-24T15:00:00.000Z",
+  "modifiedBy": "modifiedBy.hurqi@example.com"
+}
+
+
+### Books
+# @name Books_PATCH
+PATCH {{server}}/odata/v4/catalog/Books/29989098-1663-4c39-aff8-4d4efc20eca8
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "29989098-1663-4c39-aff8-4d4efc20eca8",
+  "title": "title-29989098",
+  "price": 5641015.98,
+  "stock": 50,
+  "published": true,
+  "createdAt": "2020-06-26T15:00:00.000Z",
+  "createdBy": "createdBy.hurqi@example.net",
+  "modifiedAt": "2019-08-24T15:00:00.000Z",
+  "modifiedBy": "modifiedBy.hurqi@example.com"
+}
+
+
+### Books
+# @name Books_DELETE
+DELETE {{server}}/odata/v4/catalog/Books/29989098-1663-4c39-aff8-4d4efc20eca8
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### submitOrder
+# @name submitOrder_POST
+POST {{server}}/odata/v4/catalog/submitOrder
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "bookID": "29989098-1663-4c39-aff8-4d4efc20eca8",
+  "amount": 3
+}
+
+
+### resetStock
+# @name resetStock_POST
+POST {{server}}/odata/v4/admin/resetStock
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "bookID": "29989098-1663-4c39-aff8-4d4efc20eca8",
+  "amount": 7
+}
+
+
+### Books
+# @name Books_POST
+POST {{server}}/odata/v4/admin/Books
+Content-Type: application/json
+Authorization: Basic admin:admin
+
+{ "title": "Internal Doc", "price": 0, "stock": 0 }
